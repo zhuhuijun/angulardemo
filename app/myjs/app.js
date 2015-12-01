@@ -21,6 +21,7 @@ routerApp.run(function ($rootScope, $state, $stateParams) {
  * @return {[type]}
  */
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
+    //$urlRouterProvider.when('/main/', 'main.con1');
     $urlRouterProvider.otherwise('/index');
     $stateProvider
         .state('index', {
@@ -34,22 +35,8 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        .state('booklist', {
-            url: '/{bookType:[0-9]{1,4}}',
-            views: { //注意这里的写法，当一个页面上带有多个ui-view的时候如何进行命名和视图模板的加载动作
-                '': {
-                    templateUrl: 'tpls/bookList.html'
-                },
-                'booktype@booklist': {
-                    templateUrl: 'tpls/bookType.html'
-                },
-                'bookgrid@booklist': {
-                    templateUrl: 'tpls/bookGrid.html'
-                }
-            }
-        })
         .state('main', {
-            url: '/main',
+            url: '/main/',
             views: {
                 '': {
                     templateUrl: 'tpls/main.html'//默认主页面
@@ -68,20 +55,44 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        .state('bookdetail', {
-            url: '/bookdetail/:bookId', //注意这里在路由中传参数的方式
-            templateUrl: 'tpls/bookDetail.html'
-        })
-        .state('test', {
-            url: '/test',
-            templateUrl: 'tpls/loginForm.html'
-
-        }).state('main.con1', {
+        .state('main.con1', {
             url: 'con1',
             templateUrl: 'tpls/content.html'
         })
         .state('main.charts', {
             url: 'charts',
             templateUrl: 'tpls/charts.html'
+        })
+        .state('main.tables', {
+            url: 'tables',
+            templateUrl: 'tpls/tables.html'
+        })
+        .state('main.grid', {
+            url: 'grid',
+            templateUrl: 'tpls/grid.html'
+        })
+        .state('main.buttons', {
+            url: 'buttons',
+            templateUrl: 'tpls/buttons.html'
+        })
+        .state('main.element', {
+            url: 'element',
+            templateUrl: 'tpls/interface.html'
+        })
+        .state('main.widgets', {
+            url: 'widgets',
+            templateUrl: 'tpls/widgets.html'
+        })
+        .state('main.form-common', {
+            url: 'common',
+            templateUrl: 'tpls/common.html'
+        })
+        .state('main.form-validation', {
+            url: 'validation',
+            templateUrl: 'tpls/validation.html'
+        })
+        .state('main.form-wizard', {
+            url: 'wizard',
+            templateUrl: 'tpls/wizard.html'
         })
 });
